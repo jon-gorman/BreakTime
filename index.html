@@ -55,16 +55,7 @@ let names1 = [];
 let schedule = {};
 let breakTimesFirst = ["9:45", "10:00", "10:15", "10:30", "10:45", "11:00", "11:15"];
 let breakTimesFirstHalf = ["9:45", "10:15", "10:45", "11:15"];
-let breakTimesSecond = ["1:15", "1:30", "1:45", "2:00",];
-
-// let firstShiftTimeArray = []
-//
-//  $('#15Mins').on('click', function (e) {
-//   e.preventDefault();
-//   firstShiftTimeArray.push($(this).data('time'));
-//   console.log(firstShiftTimeArray.length); // < read the length of the amended array here
-//   console.log(firstShiftTimeArray)
-// });
+// let breakTimesSecond = ["1:15", "1:30", "1:45", "2:00",];
 
 
 function display15() {
@@ -79,9 +70,7 @@ function display15() {
   }
   console.log(names1);
   
-  
 //Put into an Object
-
  names1.forEach(function (key, i) {
    schedule[key] = breakTimesFirst[i];
  });
@@ -100,7 +89,7 @@ console.log(schedule, "this is schedule object");
     //clear the previous query
     $('#results').html('');
     $.map(schedule, function (keys, value) {
-      $('#results').append(value + ' | ', keys + '<div>')
+      $('#results').append(value + ' ~ ', keys + '<div>')
     })
   });
 }
