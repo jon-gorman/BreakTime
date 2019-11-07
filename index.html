@@ -37,6 +37,22 @@
 					</div>
 				</div>
 			</div>
+      <table class="table table-hover table-dark">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Time</th>
+        </tr>
+        </thead>
+        <tbody id="myTable">
+        <tr>
+          <th id="row" scope="row">1</th>
+          <td id="name" ></td>
+          <td id="time" ></td>
+        </tr>
+        </tbody>
+      </table>
 			 <h3 id="title"></h3>
 			 <h2 id="results"></h2>
 		</div>
@@ -75,22 +91,18 @@ function display15() {
  names1.forEach(function (key, i) {
    schedule[key] = breakTimesFirst[i];
  });
-
-
-// names1.forEach(function (key, i) {
-//   schedule[key] = breakTimesFirstHalf[i];
-// });
-
-
+ 
 console.log(schedule, "this is schedule object");
 
   $(document).ready(function () {
-
     schedule;
     //clear the previous query
-    $('#results').html('');
+    $('#name').html('');
+    $('#time').html('');
     $.map(schedule, function (keys, value) {
-      $('#results').append(value + ' ~ ', keys + '<div>')
+      $('#myTable #name').append(value + '<div>');
+      // $('#time').append( keys + '<p>');
+
     })
   });
 }
