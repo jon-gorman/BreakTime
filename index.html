@@ -24,9 +24,8 @@
 				<div class="input-group-append">
 					
 					<button class="btn btn-outline-primary" onclick="addTo()">Add</button>
-					<button class="btn btn-outline-primary" onclick="display()">Get List</button>
-					<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-					        aria-haspopup="true" aria-expanded="false">Increments
+					<button class="btn btn-outline-success dropdown-toggle" type="button" data-toggle="dropdown"
+					        aria-haspopup="true" aria-expanded="false">Generate
 					</button>
 					<span class="sr-only">Toggle Dropdown</span>
 					</button>
@@ -37,17 +36,17 @@
 					</div>
 				</div>
 			</div>
-      <table class="table table-hover table-dark">
+      <table class="table table-hover">
         <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col"></th>
           <th scope="col">Name</th>
           <th scope="col">Time</th>
         </tr>
         </thead>
         <tbody id="myTable">
         <tr>
-          <th id="row" scope="row">1</th>
+          <th id="row" scope="row"></th>
           <td id="name" ></td>
           <td id="time" ></td>
         </tr>
@@ -64,11 +63,13 @@
 //Push input to array
 function addTo() {
   let stringName = names1.push(document.getElementById('userInput').value.toString());
+  let s
   console.log(stringName);
   document.getElementById('userInput').value = null;
 }
 
 let names1 = [];
+let tablePosition = [];
 let schedule = {};
 let breakTimesFirst = ["9:45", "10:00", "10:15", "10:30", "10:45", "11:00", "11:15"];
 let breakTimesFirstHalf = ["9:45", "10:15", "10:45", "11:15"];
@@ -93,16 +94,13 @@ function display15() {
  });
  
 console.log(schedule, "this is schedule object");
-
   $(document).ready(function () {
     schedule;
+    
     //clear the previous query
-    $('#name').html('');
-    $('#time').html('');
+    $('#myTable').html('');
     $.map(schedule, function (keys, value) {
-      $('#myTable #name').append(value + '<div>');
-      // $('#time').append( keys + '<p>');
-
+      $('#myTable').append( '<tr><th></th><td>' + value + '</td><td>' + keys + '</td></tr>');
     })
   });
 }
@@ -110,32 +108,29 @@ console.log(schedule, "this is schedule object");
 
 function display30() {
 //Fisher Yates method for randomizing array
-for (let i = names1.length - 1; i > 0; i--) {
-  let j = Math.floor(Math.random() * (i + 1));
-  // random index from 0 to i
-  // swap elements array[i] and array[j]
-  // same can be written as:
-  // let t = array[i]; array[i] = array[j]; array[j] = t
-  [names1[i], names1[j]] = [names1[j], names1[i]]
-}
-console.log(names1);
-
+  for (let i = names1.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    // random index from 0 to i
+    // swap elements array[i] and array[j]
+    // same can be written as:
+    // let t = array[i]; array[i] = array[j]; array[j] = t
+    [names1[i], names1[j]] = [names1[j], names1[i]]
+  }
+  console.log(names1);
 
 //Put into an Object
-
   names1.forEach(function (key, i) {
     schedule[key] = breakTimesFirstHalf[i];
   });
-  
- console.log(schedule, "this is schedule object");
 
- $(document).ready(function () {
+  console.log(schedule, "this is schedule object");
+  $(document).ready(function () {
+    schedule;
 
-   schedule;
-   //clear the previous query
-   $('#results').html('');
-   $.map(schedule, function (keys, value) {
-     $('#results').append(value + ' | ', keys + '<div>')
+    //clear the previous query
+    $('#myTable').html('');
+    $.map(schedule, function (keys, value) {
+      $('#myTable').append( '<tr><th></th><td>' + value + '</td><td>' + keys + '</td></tr>');
     })
   });
 }
