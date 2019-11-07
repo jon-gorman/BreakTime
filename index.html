@@ -32,7 +32,7 @@
 					<div class="dropdown-menu">
 						<a class="dropdown-item" onclick="display15()" id="15Mins" data-time='15Mins' href="#">15
 							Minutes</a>
-						<a class="dropdown-item" id="30Mins" href="#">30 Minutes</a>
+						<a class="dropdown-item" onclick="display30()" id="30Mins" href="#">30 Minutes</a>
 					</div>
 				</div>
 			</div>
@@ -57,14 +57,14 @@ let breakTimesFirst = ["9:45", "10:00", "10:15", "10:30", "10:45", "11:00", "11:
 let breakTimesFirstHalf = ["9:45", "10:15", "10:45", "11:15"];
 let breakTimesSecond = ["1:15", "1:30", "1:45", "2:00",];
 
-let firstShiftTimeArray = []
-
- $('#15Mins').on('click', function (e) {
-  e.preventDefault();
-  firstShiftTimeArray.push($(this).data('time'));
-  console.log(firstShiftTimeArray.length); // < read the length of the amended array here
-  console.log(firstShiftTimeArray)
-});
+// let firstShiftTimeArray = []
+//
+//  $('#15Mins').on('click', function (e) {
+//   e.preventDefault();
+//   firstShiftTimeArray.push($(this).data('time'));
+//   console.log(firstShiftTimeArray.length); // < read the length of the amended array here
+//   console.log(firstShiftTimeArray)
+// });
 
 
 function display15() {
@@ -78,9 +78,9 @@ function display15() {
     [names1[i], names1[j]] = [names1[j], names1[i]]
   }
   console.log(names1);
-
-
- //Put into an Object
+  
+  
+//Put into an Object
 
  names1.forEach(function (key, i) {
    schedule[key] = breakTimesFirst[i];
@@ -101,6 +101,39 @@ console.log(schedule, "this is schedule object");
     $('#results').html('');
     $.map(schedule, function (keys, value) {
       $('#results').append(value + ' | ', keys + '<div>')
+    })
+  });
+}
+
+
+function display30() {
+//Fisher Yates method for randomizing array
+for (let i = names1.length - 1; i > 0; i--) {
+  let j = Math.floor(Math.random() * (i + 1));
+  // random index from 0 to i
+  // swap elements array[i] and array[j]
+  // same can be written as:
+  // let t = array[i]; array[i] = array[j]; array[j] = t
+  [names1[i], names1[j]] = [names1[j], names1[i]]
+}
+console.log(names1);
+
+
+//Put into an Object
+
+  names1.forEach(function (key, i) {
+    schedule[key] = breakTimesFirstHalf[i];
+  });
+  
+ console.log(schedule, "this is schedule object");
+
+ $(document).ready(function () {
+
+   schedule;
+   //clear the previous query
+   $('#results').html('');
+   $.map(schedule, function (keys, value) {
+     $('#results').append(value + ' | ', keys + '<div>')
     })
   });
 }
