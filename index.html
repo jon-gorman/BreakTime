@@ -1,60 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	 <meta charset="UTF-8">
-	 <link rel="stylesheet" type="text/css" href="styles.css">
-	 <!--Bootstrap 4-->
-	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-				 integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	 <!--jQuery-->
-	 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-					 integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-					 crossorigin="anonymous"></script>
-	 <title>Title</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!--Bootstrap 4-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <title>Title</title>
 </head>
 <body>
 <div class="container">
-	 <div class="row justify-content-md-center">
-			<div class="col col-lg-6">
-				 <h1 class="col align-self-center">Break Taker app</h1>
-				 <div class="input-group">
-						<input type="text" class="form-control" id="userInput" placeholder="Recipient's username"
-									 aria-label="Recipient's username" aria-describedby="basic-addon2">
-						<div class="input-group-append">
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-6">
+            <h1 class="col align-self-center">Break Taker app</h1>
+            <div class="input-group">
+                <input type="text" class="form-control" id="userInput" placeholder="Recipient's username"
+                       aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
 
-							 <button class="btn btn-outline-primary" onclick="addTo()">Add</button>
-							 <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown"
-											 aria-haspopup="true" aria-expanded="false">Generate
-							 </button>
-							 <span class="sr-only">Toggle Dropdown</span>
-							 </button>
-							 <div class="dropdown-menu">
-									<a class="dropdown-item" onclick="display15()" id="15Mins" data-time='15Mins' href="#">15
-										 Minutes</a>
-									<a class="dropdown-item" onclick="display30()" id="30Mins" href="#">30 Minutes</a>
-							 </div>
-						</div>
-				 </div>
-				 <table class="table table-hover">
-						<thead>
-						<tr>
-							 <th scope="col"></th>
-							 <th scope="col">Name</th>
-							 <th scope="col">Time</th>
-						</tr>
-						</thead>
-						<tbody id="myTable">
-						<tr>
-							 <th id="row" scope="row"></th>
-							 <td id="name"></td>
-							 <td id="time"></td>
-						</tr>
-						</tbody>
-				 </table>
-				 <h3 id="title"></h3>
-				 <h2 id="results"></h2>
-			</div>
-	 </div>
+                    <button class="btn btn-outline-primary" onclick="addTo()">Add</button>
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Generate
+                    </button>
+                    <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" onclick="display15()" id="15Mins" data-time='15Mins' href="#">15
+                            Minutes</a>
+                        <a class="dropdown-item" onclick="display30()" id="30Mins" href="#">30 Minutes</a>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Time</th>
+                </tr>
+                </thead>
+                <tbody id="myTable">
+                <tr>
+                    <th id="row" scope="row"></th>
+                    <td id="name"></td>
+                    <td id="time"></td>
+                </tr>
+                </tbody>
+            </table>
+            <h3 id="title"></h3>
+            <h2 id="results"></h2>
+        </div>
+    </div>
 </div>
 <script>
   //Program to randomly select times for employee lunches :)
@@ -140,10 +140,10 @@
 </script>
 <!--Bootstrap 4-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-				integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-				crossorigin="anonymous"></script>
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-				integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-				crossorigin="anonymous"></script>
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 </html>
