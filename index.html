@@ -33,7 +33,7 @@
 						<a class="dropdown-item" onclick="display15()" id="15Mins" data-time='15Mins' href="#">15
 							Minutes</a>
 						<a class="dropdown-item" onclick="display30()" id="30Mins" href="#">30 Minutes</a>
-					</div>
+                    </div>
 				</div>
 			</div>
       <table class="table table-hover">
@@ -62,10 +62,14 @@
 
 //Push input to array
 function addTo() {
-  let stringName = names1.push(document.getElementById('userInput').value.toString());
-  let s
-  console.log(stringName);
-  document.getElementById('userInput').value = null;
+  if(document.getElementById('userInput').value != '') {
+    $('#title').html('');
+    let stringName = names1.push(document.getElementById('userInput').value.toString());
+    console.log(stringName);
+    document.getElementById('userInput').value = null;
+  }else{
+    document.getElementById('title').append('Must enter a value')
+  }
 }
 
 let names1 = [];
