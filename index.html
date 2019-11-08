@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="styles.css">
@@ -111,7 +110,7 @@
 
 
   function display30() {
-//Fisher Yates method for randomizing array
+  //Fisher Yates method for randomizing array
     for (let i = names1.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
       // random index from 0 to i
@@ -122,7 +121,7 @@
     }
     console.log(names1);
 
-//Put into an Object
+  //Put into an Object
     names1.forEach(function (key, i) {
       schedule[key] = breakTimesFirstHalf[i];
     });
