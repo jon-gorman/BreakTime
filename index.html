@@ -6,11 +6,11 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<!--Bootstrap 4-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<!--jQuery-->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-	        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-	        crossorigin="anonymous"></script>
+			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+			crossorigin="anonymous"></script>
 	<title>Title</title>
 </head>
 <body>
@@ -18,14 +18,14 @@
 	<div class="row justify-content-md-center">
 		<div class="col col-lg-6">
 			<h1 class="col align-self-center">Break Taker app</h1>
-				<div class="input-group">
+			<div class="input-group">
 				<input type="text" class="form-control" id="userInput" placeholder="Recipient's username"
-				       aria-label="Recipient's username" aria-describedby="basic-addon2">
+					   aria-label="Recipient's username" aria-describedby="basic-addon2">
 				<div class="input-group-append">
-					
+
 					<button class="btn btn-outline-primary" onclick="addTo()">Add</button>
 					<button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown"
-					        aria-haspopup="true" aria-expanded="false">Generate
+							aria-haspopup="true" aria-expanded="false">Generate
 					</button>
 					<span class="sr-only">Toggle Dropdown</span>
 					</button>
@@ -33,118 +33,119 @@
 						<a class="dropdown-item" onclick="display15()" id="15Mins" data-time='15Mins' href="#">15
 							Minutes</a>
 						<a class="dropdown-item" onclick="display30()" id="30Mins" href="#">30 Minutes</a>
-                    </div>
+					</div>
 				</div>
 			</div>
-      <table class="table table-hover">
-        <thead>
-        <tr>
-          <th scope="col"></th>
-          <th scope="col">Name</th>
-          <th scope="col">Time</th>
-        </tr>
-        </thead>
-        <tbody id="myTable">
-        <tr>
-          <th id="row" scope="row"></th>
-          <td id="name" ></td>
-          <td id="time" ></td>
-        </tr>
-        </tbody>
-      </table>
-			 <h3 id="title"></h3>
-			 <h2 id="results"></h2>
+			<table class="table table-hover">
+				<thead>
+				<tr>
+					<th scope="col"></th>
+					<th scope="col">Name</th>
+					<th scope="col">Time</th>
+				</tr>
+				</thead>
+				<tbody id="myTable">
+				<tr>
+					<th id="row" scope="row"></th>
+					<td id="name"></td>
+					<td id="time"></td>
+				</tr>
+				</tbody>
+			</table>
+			<h3 id="title"></h3>
+			<h2 id="results"></h2>
 		</div>
 	</div>
 </div>
 <script>
-//Program to randomly select times for employee lunches :)
-//Push input to array
-function addTo() {
-  if(document.getElementById('userInput').value != '') {
-    $('#title').html('');
-    let stringName = names1.push(document.getElementById('userInput').value.toString());
-    console.log(stringName);
-    document.getElementById('userInput').value = null;
-  }else{
-    document.getElementById('title').append('Must enter a value')
+  //Program to randomly select times for employee lunches :)
+  //Push input to array
+  function addTo() {
+    if (document.getElementById('userInput').value != '') {
+      $('#title').html('');
+      let stringName = names1.push(document.getElementById('userInput').value.toString());
+      console.log(stringName);
+      document.getElementById('userInput').value = null;
+    } else {
+      document.getElementById('title').append('Must enter a value')
+    }
   }
-}
 
-let names1 = [];
-let tablePosition = [];
-let schedule = {};
-let breakTimesFirst = ["9:45", "10:00", "10:15", "10:30", "10:45", "11:00", "11:15"];
-let breakTimesFirstHalf = ["9:45", "10:15", "10:45", "11:15"];
-// let breakTimesSecond = ["1:15", "1:30", "1:45", "2:00",];
+  let names1 = [];
+  let tablePosition = [];
+  let schedule = {};
+  let breakTimesFirst = ["9:45", "10:00", "10:15", "10:30", "10:45", "11:00", "11:15"];
+  let breakTimesFirstHalf = ["9:45", "10:15", "10:45", "11:15"];
+
+  // let breakTimesSecond = ["1:15", "1:30", "1:45", "2:00",];
 
 
-function display15() {
-  //Fisher Yates method for randomizing array
-  for (let i = names1.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1));
-    // random index from 0 to i
-    // swap elements array[i] and array[j]
-    // same can be written as:
-    // let t = array[i]; array[i] = array[j]; array[j] = t
-    [names1[i], names1[j]] = [names1[j], names1[i]]
-  }
-  console.log(names1);
-  
+  function display15() {
+    //Fisher Yates method for randomizing array
+    for (let i = names1.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      // random index from 0 to i
+      // swap elements array[i] and array[j]
+      // same can be written as:
+      // let t = array[i]; array[i] = array[j]; array[j] = t
+      [names1[i], names1[j]] = [names1[j], names1[i]]
+    }
+    console.log(names1);
+
 //Put into an Object
- names1.forEach(function (key, i) {
-   schedule[key] = breakTimesFirst[i];
- });
- 
-console.log(schedule, "this is schedule object");
-  $(document).ready(function () {
-    schedule;
-    
-    //clear the previous query
-    $('#myTable').html('');
-    $.map(schedule, function (keys, value) {
-      $('#myTable').append( '<tr><th></th><td>' + value + '</td><td>' + keys + '</td></tr>');
-    })
-  });
-}
+    names1.forEach(function (key, i) {
+      schedule[key] = breakTimesFirst[i];
+    });
+
+    console.log(schedule, "this is schedule object");
+    $(document).ready(function () {
+      schedule;
+
+      //clear the previous query
+      $('#myTable').html('');
+      $.map(schedule, function (keys, value) {
+        $('#myTable').append('<tr><th></th><td>' + value + '</td><td>' + keys + '</td></tr>');
+      })
+    });
+  }
 
 
-function display30() {
+  function display30() {
 //Fisher Yates method for randomizing array
-  for (let i = names1.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1));
-    // random index from 0 to i
-    // swap elements array[i] and array[j]
-    // same can be written as:
-    // let t = array[i]; array[i] = array[j]; array[j] = t
-    [names1[i], names1[j]] = [names1[j], names1[i]]
-  }
-  console.log(names1);
+    for (let i = names1.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      // random index from 0 to i
+      // swap elements array[i] and array[j]
+      // same can be written as:
+      // let t = array[i]; array[i] = array[j]; array[j] = t
+      [names1[i], names1[j]] = [names1[j], names1[i]]
+    }
+    console.log(names1);
 
 //Put into an Object
-  names1.forEach(function (key, i) {
-    schedule[key] = breakTimesFirstHalf[i];
-  });
+    names1.forEach(function (key, i) {
+      schedule[key] = breakTimesFirstHalf[i];
+    });
 
-  console.log(schedule, "this is schedule object");
-  $(document).ready(function () {
-    schedule;
+    console.log(schedule, "this is schedule object");
+    $(document).ready(function () {
+      schedule;
 
-    //clear the previous query
-    $('#myTable').html('');
-    $.map(schedule, function (keys, value) {
-      $('#myTable').append( '<tr><th></th><td>' + value + '</td><td>' + keys + '</td></tr>');
-    })
-  });
-}
+      //clear the previous query
+      $('#myTable').html('');
+      $.map(schedule, function (keys, value) {
+        $('#myTable').append('<tr><th></th><td>' + value + '</td><td>' + keys + '</td></tr>');
+      })
+    });
+  }
 
 </script>
 <!--Bootstrap 4-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
 </body>
 </html>
