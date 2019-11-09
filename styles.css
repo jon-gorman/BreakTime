@@ -1,0 +1,32 @@
+
+.navbar-brand.mb-0{
+  font-family: 'Racing Sans One', cursive !important;
+}
+
+.img-fluid {
+  height: 100px;
+  width: 100px;
+  /*margin-bottom: -25px;*/
+  /*margin-top: -25px;*/
+}
+h1{
+  font-family: 'Racing Sans One', cursive !important;
+  text-decoration: underline;
+}
+h2{
+  font-family: 'Racing Sans One', cursive !important;
+  text-decoration: underline;
+
+}
+
+/*Tables*/
+th.tableHead {
+  font-family: 'Racing Sans One', cursive !important;
+  text-decoration: underline;
+  /*font-size: x-large;*/
+}
+
+tr {
+  font-family: 'Racing Sans One', cursive !important;
+  font-size: 40px !important;
+}

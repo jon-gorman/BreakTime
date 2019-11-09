@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <link rel="stylesheet" type="text/css" href="styles.css">
     <!--Bootstrap 4-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -10,20 +11,30 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
             crossorigin="anonymous"></script>
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Racing+Sans+One&display=swap" rel="stylesheet">
     <title>Title</title>
 </head>
 <body>
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">BT
+    </span>
+</nav>
 <div class="container">
     <div class="row justify-content-md-center">
-        <div class="col col-lg-6">
-            <h1 class="col align-self-center">Break Taker app</h1>
+        <div class="col col-lg-1">
+            <h1 class="row justify-content-md-center">Break Taker</h1>
+            <div class="text-center">
+                <img class="img-fluid" src="https://cdn4.vectorstock.com/i/thumb-large/55/48/race-flag-icon-design-vector-23745548.jpg" alt="" class="flag">
+            </div>
+            <h2>6:00 am</h2>
             <div class="input-group">
                 <input type="text" class="form-control" id="userInput" placeholder="Recipient's username"
                        aria-label="Recipient's username" aria-describedby="basic-addon2">
                 <div class="input-group-append">
 
                     <button class="btn btn-outline-primary" onclick="addTo()">Add</button>
-                    <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown"
+                    <button class="btn btn-outline-primary dropdown-toggle" id="dropDown" type="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">Generate
                     </button>
                     <span class="sr-only">Toggle Dropdown</span>
@@ -38,9 +49,9 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th scope="col"></th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Time</th>
+                    <th class="tableHead" role="image" aria-label="hamburger" scope="col">Emoji</th>
+                    <th class="tableHead" scope="col">Name</th>
+                    <th class="tableHead" scope="col">Time</th>
                 </tr>
                 </thead>
                 <tbody id="myTable">
@@ -56,87 +67,234 @@
         </div>
     </div>
 </div>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-6">
+
+            <h2>9:30 am</h2>
+            <div class="input-group">
+                <input type="text" class="form-control" id="userInput2" placeholder="Recipient's username"
+                       aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+
+                    <button class="btn btn-outline-primary" onclick="addToSecond()">Add</button>
+                    <button class="btn btn-outline-primary dropdown-toggle" id="dropDown2" type="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Generate
+                    </button>
+                    <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" onclick="display15Second()" id="15Mins2" data-time='15Mins' href="#">15
+                            Minutes</a>
+                        <a class="dropdown-item" onclick="display30Second()" id="30Mins2" href="#">30 Minutes</a>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th role="image" aria-label="hamburger" scope="col">Emoji</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Time</th>
+                </tr>
+                </thead>
+                <tbody id="myTable2">
+                <tr>
+                    <th id="row2" scope="row"></th>
+                    <td id="name2"></td>
+                    <td id="time2"></td>
+                </tr>
+                </tbody>
+            </table>
+            <h3 id="title2"></h3>
+            <h2 id="results2"></h2>
+        </div>
+    </div>
+</div>
 <script>
-  //Program to randomly select times for employee lunches :)
-  //Push input to array
-  function addTo() {
-    if (document.getElementById('userInput').value != '') {
-      $('#title').html('');
-      let stringName = names1.push(document.getElementById('userInput').value.toString());
-      console.log(stringName);
-      document.getElementById('userInput').value = null;
-    } else {
-      document.getElementById('title').append('Must enter a value')
+
+    //Program to randomly select times for employee lunches :)
+    let names1 = [];
+    let names2 = [];
+    let tablePosition = [];
+    let schedule = {};
+    let schedule2 = {};
+    let breakTimesFirst = ["9:45", "10:00", "10:15", "10:30", "10:45", "11:00", "11:15"];
+    let breakTimesFirstHalf = ["9:45", "10:15", "10:45", "11:15", "12:45", "1:15", "1:45"];
+
+    let breakTimesSecond = ["1:15", "1:30", "1:45", "2:00", "2:15", "2:30", "2:45"];
+    let breakTimesSecondHalf = ["1:15", "1:45", "2:15", "2:45", "3:15", "3:45", "4:15"];
+
+    let breakTimesThird = ["3:15", "3:30", "3:45", "4:00", "4:15", "4:30", "4:45"];
+    let breakTimesThirdHalf = ["3:15", "3:45", "4:15", "4:45", "5:15", "5:45", "6:15"];
+
+    let emojiArray = [
+        '😀', '😁', '😂', '🤣', '😃', '😄', '😅', '😆', '😉', '😊', '😋', '😎', '😍', '😘', '🥰', '😗', '😙', '😚', '☺️', '🙂', '🤗', '🤩', '🤔', '🤨', '😐', '😑', '😶', '🙄', '😏', '😣', '😥', '😮', '🤐', '😯', '😪', '😫', '😴', '😌', '😛', '😜', '😝', '🤤', '😒', '😓', '😔', '😕', '🙃', '🤑', '😲', '☹️', '🙁', '😖', '😞', '😟', '😤', '😢', '😭', '😦', '😧', '😨', '😩', '🤯', '😬', '😰', '😱', '🥵', '🥶', '😳', '🤪', '😵', '😡', '😠', '🤬', '😷', '🤒', '🤕', '🤢', '🤮', '🤧', '😇', '🤠', '🤡', '🥳', '🥴', '🥺', '🤥', '🤫', '🤭', '🧐', '🤓', '😈', '👿', '👹', '👺', '💀', '👻', '👽', '🤖', '💩', '😺', '😸', '😹', '😻', '😼', '😽', '🙀', '😿', '😾',
+        '👶', '👧', '🧒', '👦', '👩', '🧑', '👨', '👵', '🧓', '👴', '👲', '👳‍♀️', '👳‍♂️', '🧕', '🧔', '👱‍♂️', '👱‍♀️', '👨‍🦰', '👩‍🦰', '👨‍🦱', '👩‍🦱', '👨‍🦲', '👩‍🦲', '👨‍🦳', '👩‍🦳', '🦸‍♀️', '🦸‍♂️', '🦹‍♀️', '🦹‍♂️', '👮‍♀️', '👮‍♂️', '👷‍♀️', '👷‍♂️', '💂‍♀️', '💂‍♂️', '🕵️‍♀️', '🕵️‍♂️', '👩‍⚕️', '👨‍⚕️', '👩‍🌾', '👨‍🌾', '👩‍🍳', '👨‍🍳', '👩‍🎓', '👨‍🎓', '👩‍🎤', '👨‍🎤', '👩‍🏫', '👨‍🏫', '👩‍🏭', '👨‍🏭', '👩‍💻', '👨‍💻', '👩‍💼', '👨‍💼', '👩‍🔧', '👨‍🔧', '👩‍🔬', '👨‍🔬', '👩‍🎨', '👨‍🎨', '👩‍🚒', '👨‍🚒', '👩‍✈️', '👨‍✈️', '👩‍🚀', '👨‍🚀', '👩‍⚖️', '👨‍⚖️', '👰', '🤵', '👸', '🤴', '🤶', '🎅', '🧙‍♀️', '🧙‍♂️', '🧝‍♀️', '🧝‍♂️', '🧛‍♀️', '🧛‍♂️', '🧟‍♀️', '🧟‍♂️', '🧞‍♀️', '🧞‍♂️', '🧜‍♀️', '🧜‍♂️', '🧚‍♀️', '🧚‍♂️', '👼', '🤰', '🤱', '🙇‍♀️', '🙇‍♂️', '💁‍♀️', '💁‍♂️', '🙅‍♀️', '🙅‍♂️', '🙆‍♀️', '🙆‍♂️', '🙋‍♀️', '🙋‍♂️', '🤦‍♀️', '🤦‍♂️', '🤷‍♀️', '🤷‍♂️', '🙎‍♀️', '🙎‍♂️', '🙍‍♀️', '🙍‍♂️', '💇‍♀️', '💇‍♂️', '💆‍♀️', '💆‍♂️', '🧖‍♀️', '🧖‍♂️', '💅', '🤳', '💃', '🕺', '👯‍♀️', '👯‍♂️', '🕴', '🚶‍♀️', '🚶‍♂️', '🏃‍♀️', '🏃‍♂️', '👫', '👭', '👬', '💑', '👩‍❤️‍👩', '👨‍❤️‍👨', '💏', '👩‍❤️‍💋‍👩', '👨‍❤️‍💋‍👨', '👪', '👨‍👩‍👧', '👨‍👩‍👧‍👦', '👨‍👩‍👦‍👦', '👨‍👩‍👧‍👧', '👩‍👩‍👦', '👩‍👩‍👧', '👩‍👩‍👧‍👦', '👩‍👩‍👦‍👦', '👩‍👩‍👧‍👧', '👨‍👨‍👦', '👨‍👨‍👧', '👨‍👨‍👧‍👦', '👨‍👨‍👦‍👦', '👨‍👨‍👧‍👧', '👩‍👦', '👩‍👧', '👩‍👧‍👦', '👩‍👦‍👦', '👩‍👧‍👧', '👨‍👦', '👨‍👧', '👨‍👧‍👦', '👨‍👦‍👦', '👨‍👧‍👧', '🤲', '👐', '🙌', '👏', '🤝', '👍', '👎', '👊', '✊', '🤛', '🤜', '🤞', '✌️', '🤟', '🤘', '👌', '👈', '👉', '👆', '👇', '☝️', '✋', '🤚', '🖐', '🖖', '👋', '🤙', '💪', '🦵', '🦶', '🖕', '✍️', '🙏', '💍', '💄', '💋', '👄', '👅', '👂', '👃', '👣', '👁', '👀', '🧠', '🦴', '🦷', '🗣', '👤', '👥',
+        '🧥', '👚', '👕', '👖', '👔', '👗', '👙', '👘', '👠', '👡', '👢', '👞', '👟', '🥾', '🥿', '🧦', '🧤', '🧣', '🎩', '🧢', '👒', '🎓', '⛑', '👑', '👝', '👛', '👜', '💼', '🎒', '👓', '🕶', '🥽', '🥼', '🌂', '🧵', '🧶',
+        '🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🦝', '🐻', '🐼', '🦘', '🦡', '🐨', '🐯', '🦁', '🐮', '🐷', '🐽', '🐸', '🐵', '🙈', '🙉', '🙊', '🐒', '🐔', '🐧', '🐦', '🐤', '🐣', '🐥', '🦆', '🦢', '🦅', '🦉', '🦚', '🦜', '🦇', '🐺', '🐗', '🐴', '🦄', '🐝', '🐛', '🦋', '🐌', '🐚', '🐞', '🐜', '🦗', '🕷', '🕸', '🦂', '🦟', '🦠', '🐢', '🐍', '🦎', '🦖', '🦕', '🐙', '🦑', '🦐', '🦀', '🐡', '🐠', '🐟', '🐬', '🐳', '🐋', '🦈', '🐊', '🐅', '🐆', '🦓', '🦍', '🐘', '🦏', '🦛', '🐪', '🐫', '🦙', '🦒', '🐃', '🐂', '🐄', '🐎', '🐖', '🐏', '🐑', '🐐', '🦌', '🐕', '🐩', '🐈', '🐓', '🦃', '🕊', '🐇', '🐁', '🐀', '🐿', '🦔', '🐾', '🐉', '🐲', '🌵', '🎄', '🌲', '🌳', '🌴', '🌱', '🌿', '☘️', '🍀', '🎍', '🎋', '🍃', '🍂', '🍁', '🍄', '🌾', '💐', '🌷', '🌹', '🥀', '🌺', '🌸', '🌼', '🌻', '🌞', '🌝', '🌛', '🌜', '🌚', '🌕', '🌖', '🌗', '🌘', '🌑', '🌒', '🌓', '🌔', '🌙', '🌎', '🌍', '🌏', '💫', '⭐️', '🌟', '✨', '⚡️', '☄️', '💥', '🔥', '🌪', '🌈', '☀️', '🌤', '⛅️', '🌥', '☁️', '🌦', '🌧', '⛈', '🌩', '🌨', '❄️', '☃️', '⛄️', '🌬', '💨', '💧', '💦', '☔️', '☂️', '🌊', '🌫',
+        '🍏', '🍎', '🍐', '🍊', '🍋', '🍌', '🍉', '🍇', '🍓', '🍈', '🍒', '🍑', '🍍', '🥭', '🥥', '🥝', '🍅', '🍆', '🥑', '🥦', '🥒', '🥬', '🌶', '🌽', '🥕', '🥔', '🍠', '🥐', '🍞', '🥖', '🥨', '🥯', '🧀', '🥚', '🍳', '🥞', '🥓', '🥩', '🍗', '🍖', '🌭', '🍔', '🍟', '🍕', '🥪', '🥙', '🌮', '🌯', '🥗', '🥘', '🥫', '🍝', '🍜', '🍲', '🍛', '🍣', '🍱', '🥟', '🍤', '🍙', '🍚', '🍘', '🍥', '🥮', '🥠', '🍢', '🍡', '🍧', '🍨', '🍦', '🥧', '🍰', '🎂', '🍮', '🍭', '🍬', '🍫', '🍿', '🧂', '🍩', '🍪', '🌰', '🥜', '🍯', '🥛', '🍼', '☕️', '🍵', '🥤', '🍶', '🍺', '🍻', '🥂', '🍷', '🥃', '🍸', '🍹', '🍾', '🥄', '🍴', '🍽', '🥣', '🥡', '🥢'
+    ];
+
+
+    //Push input to array
+    function addTo() {
+        if (document.getElementById('userInput').value != '') {
+            $('#title').html('');
+            $('#dropDown').css('pointer-events', 'auto')
+            let stringName = names1.push(document.getElementById('userInput').value.toString());
+            console.log(stringName);
+            document.getElementById('userInput').value = null;
+        }
+        if(names1.length > 7) {
+            $('#title').html('');
+            document.getElementById('title').append('Sorry thats too many people');
+            $('#dropDown').css('pointer-events', 'none')
+        }
+        else if(names1.length < 1 ){
+            $('#title').html('');
+            document.getElementById('title').append('Must enter a value');
+            $('#dropDown').css('pointer-events', 'none')
+        }
     }
-  }
 
-  let names1 = [];
-  let tablePosition = [];
-  let schedule = {};
-  let breakTimesFirst = ["9:45", "10:00", "10:15", "10:30", "10:45", "11:00", "11:15"];
-  let breakTimesFirstHalf = ["9:45", "10:15", "10:45", "11:15"];
-
-  // let breakTimesSecond = ["1:15", "1:30", "1:45", "2:00",];
-
-
-  function display15() {
-    //Fisher Yates method for randomizing array
-    for (let i = names1.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
-      // random index from 0 to i
-      // swap elements array[i] and array[j]
-      // same can be written as:
-      // let t = array[i]; array[i] = array[j]; array[j] = t
-      [names1[i], names1[j]] = [names1[j], names1[i]]
+    //Push input to array
+    function addToSecond() {
+        if (document.getElementById('userInput2').value != '') {
+            $('#title2').html('');
+            $('#dropDown2').css('pointer-events', 'auto')
+            let stringName2 = names2.push(document.getElementById('userInput2').value.toString());
+            console.log(stringName2);
+            document.getElementById('userInput2').value = null;
+        }
+        if(names2.length > 7) {
+            $('#title2').html('');
+            document.getElementById('title2').append('Sorry thats too many people');
+            $('#dropDown2').css('pointer-events', 'none')
+        }
+        else if(names2.length < 1 ){
+            $('#title2').html('');
+            document.getElementById('title2').append('Must enter a value');
+            $('#dropDown2').css('pointer-events', 'none')
+        }
     }
-    console.log(names1);
 
-//Put into an Object
-    names1.forEach(function (key, i) {
-      schedule[key] = breakTimesFirst[i];
-    });
+    function display15() {
+        //Fisher Yates method for randomizing array
+        for (let i = names1.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+            // random index from 0 to i
+            // swap elements array[i] and array[j]
+            // same can be written as:
+            // let t = array[i]; array[i] = array[j]; array[j] = t
+            [names1[i], names1[j]] = [names1[j], names1[i]]
+        }
 
-    console.log(schedule, "this is schedule object");
+        console.log(names1);
+        //randomize the emoji array :)
+        for (let k = emojiArray.length - 1; k > 0; k--){
+            let l = Math.floor(Math.random() * (k + 1));
+            [emojiArray[k], emojiArray[l]] = [emojiArray[l], emojiArray[k]]
+        }
+
+        console.log(emojiArray.length);
+        //Put into an Object
+        names1.forEach(function (key, i) {
+            schedule[key] = breakTimesFirst[i];
+        });
+
+        console.log(schedule, "this is schedule object");
+        //generate random emoji
+        function getRandomNum(max){
+            return Math.floor(Math.random() * Math.floor(max))
+    }
+
     $(document).ready(function () {
-      schedule;
-
-      //clear the previous query
-      $('#myTable').html('');
-      $.map(schedule, function (keys, value) {
-        $('#myTable').append('<tr><th></th><td>' + value + '</td><td>' + keys + '</td></tr>');
-      })
-    });
-  }
-
-
-  function display30() {
-    //Fisher Yates method for randomizing array
-    for (let i = names1.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
-      // random index from 0 to i
-      // swap elements array[i] and array[j]
-      // same can be written as:
-      // let t = array[i]; array[i] = array[j]; array[j] = t
-      [names1[i], names1[j]] = [names1[j], names1[i]]
+        schedule;
+        //clear the previous query
+        $('#myTable').html('');
+        $.map(schedule, function (keys, value) {
+            $('#myTable').append('<tr><th>' + emojiArray[getRandomNum(106)] + '</th><td>' + value + '</td><td>' + keys + '</td></tr>');
+            })
+        });
     }
-    console.log(names1);
 
-    //Put into an Object
-    names1.forEach(function (key, i) {
-      schedule[key] = breakTimesFirstHalf[i];
-    });
+    function display30() {
+        //Fisher Yates method for randomizing array
+        for (let i = names1.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            // random index from 0 to i
+            // swap elements array[i] and array[j]
+            // same can be written as:
+            // let t = array[i]; array[i] = array[j]; array[j] = t
+            [names1[i], names1[j]] = [names1[j], names1[i]]
+        }
 
-    console.log(schedule, "this is schedule object");
-    $(document).ready(function () {
-      schedule;
+        console.log(names1);
+        //Put into an Object
+        names1.forEach(function (key, i) {
+            schedule[key] = breakTimesFirstHalf[i];
+        });
 
-      //clear the previous query
-      $('#myTable').html('');
-      $.map(schedule, function (keys, value) {
-        $('#myTable').append('<tr><th></th><td>' + value + '</td><td>' + keys + '</td></tr>');
-      })
-    });
-  }
+        //generate random emoji.
+        function getRandomNum(max){
+          return Math.floor(Math.random() * Math.floor(max))
+
+        }
+
+        console.log(schedule, "this is schedule object");
+        $(document).ready(function () {
+            schedule;
+            //clear the previous query
+            $('#myTable').html('');
+            $.map(schedule, function (keys, value) {
+                $('#myTable').append('<tr><th>' + emojiArray[getRandomNum(106)] + '</th><td>' + value + '</td><td>' + keys + '</td></tr>');
+
+            })
+        });
+    }
+
+    function display15Second(){
+        //Fisher Yates method for randomizing array
+        for (let i = names2.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            // random index from 0 to i
+            // swap elements array[i] and array[j]
+            // same can be written as:
+            // let t = array[i]; array[i] = array[j]; array[j] = t
+            [names2[i], names2[j]] = [names2[j], names2[i]]
+        }
+
+        console.log(names2);
+        //randomize the emoji array :)
+        for (let k = emojiArray.length - 1; k > 0; k--){
+            let l = Math.floor(Math.random() * (k + 1));
+            [emojiArray[k], emojiArray[l]] = [emojiArray[l], emojiArray[k]]
+        }
+
+        console.log(emojiArray.length);
+        //Put into an Object
+        names2.forEach(function (key, i) {
+            schedule2[key] = breakTimesSecond[i];
+        });
+
+        console.log(schedule2, "this is schedule object");
+        //generate random emoji
+        function getRandomNum(max){
+            return Math.floor(Math.random() * Math.floor(max))
+        }
+
+        $(document).ready(function () {
+            schedule2;
+            //clear the previous query
+            $('#myTable2').html('');
+            $.map(schedule2, function (keys2, value2) {
+                $('#myTable2').append('<tr><th>' + emojiArray[getRandomNum(106)] + '</th><td>' + value2 + '</td><td>' + keys2 + '</td></tr>');
+            })
+        });
+    }
+
+
 </script>
 <!--Bootstrap 4-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
