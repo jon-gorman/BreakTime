@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <!--Bootstrap 4-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -12,33 +14,33 @@
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
             crossorigin="anonymous"></script>
     <!--Google Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Racing+Sans+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Racing+Sans+One&display=swap"
+          rel="stylesheet">
     <title>Title</title>
 </head>
 <body>
-<nav class="navbar navbar-light bg-light">
-    <span class="navbar-brand mb-0 h1">BT
-    </span>
-</nav>
-<div class="container">
-    <div class="row justify-content-md-center">
-        <div class="col col-lg-6">
-            <h1 class="row justify-content-md-center">Break Taker</h1>
-            <div class="text-center">
-                <img class="img-fluid" src="https://cdn4.vectorstock.com/i/thumb-large/55/48/race-flag-icon-design-vector-23745548.jpg" alt="" class="flag">
-            </div>
-            <h2>6:00 am</h2>
-            <div class="input-group">
-                <input type="text" class="form-control" id="userInput" placeholder="Recipient's username"
-                       aria-label="Recipient's username" aria-describedby="basic-addon2">
-                <div class="input-group-append">
 
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">BT</span>
+</nav>
+
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card card-body">
+            <h1 id="titleText" class="text-center">Break Taker 2000</h1>
+            <img class="rounded mx-auto d-block"
+                 src="data:image/jpeg;base64,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">
+            <h2>6:00 am</h2>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="userInput" placeholder="Recipient's username"
+                       aria-label="Recipient's username">
+                <div class="input-group-append">
                     <button class="btn btn-outline-primary" onclick="addTo()">Add</button>
-                    <button class="btn btn-outline-primary dropdown-toggle" id="dropDown" type="button" data-toggle="dropdown"
+                    <button class="btn btn-outline-primary dropdown-toggle" id="dropDown" type="button"
+                            data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">Generate
                     </button>
                     <span class="sr-only">Toggle Dropdown</span>
-                    </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" onclick="display15()" id="15Mins" data-time='15Mins' href="#">15
                             Minutes</a>
@@ -46,7 +48,7 @@
                     </div>
                 </div>
             </div>
-            <table class="table table-hover">
+            <table class="table table-hover text-center">
                 <thead>
                 <tr>
                     <th class="tableHead" role="image" aria-label="hamburger" scope="col">Emoji</th>
@@ -56,7 +58,7 @@
                 </thead>
                 <tbody id="myTable">
                 <tr>
-                    <th id="row" scope="row"></th>
+                    <th id="row" scope="row" style="font-size: 45px !important;"></th>
                     <td id="name"></td>
                     <td id="time"></td>
                 </tr>
@@ -64,23 +66,18 @@
             </table>
             <h3 id="title"></h3>
             <h2 id="results"></h2>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row justify-content-md-center">
-        <div class="col col-lg-6">
             <h2>9:30 am</h2>
-            <div class="input-group">
+            <div class="input-group mb-3">
                 <input type="text" class="form-control" id="userInput2" placeholder="Recipient's username"
                        aria-label="Recipient's username" aria-describedby="basic-addon2">
                 <div class="input-group-append">
+
                     <button class="btn btn-outline-primary" onclick="addToSecond()">Add</button>
-                    <button class="btn btn-outline-primary dropdown-toggle" id="dropDown2" type="button" data-toggle="dropdown"
+                    <button class="btn btn-outline-primary dropdown-toggle" id="dropDown2" type="button"
+                            data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">Generate
                     </button>
                     <span class="sr-only">Toggle Dropdown</span>
-                    </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" onclick="display15Second()" id="15Mins2" data-time='15Mins' href="#">15
                             Minutes</a>
@@ -88,12 +85,13 @@
                     </div>
                 </div>
             </div>
-            <table class="table table-hover">
+
+            <table class="table table-hover text-center">
                 <thead>
                 <tr>
-                    <th role="image" aria-label="hamburger" scope="col">Emoji</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Time</th>
+                    <th class="tableHead" role="image" aria-label="hamburger" scope="col">Emoji</th>
+                    <th class="tableHead" scope="col">Name</th>
+                    <th class="tableHead" scope="col">Time</th>
                 </tr>
                 </thead>
                 <tbody id="myTable2">
@@ -106,6 +104,44 @@
             </table>
             <h3 id="title2"></h3>
             <h2 id="results2"></h2>
+
+            <h2>11:30 am</h2>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="userInput3" placeholder="Recipient's username"
+                       aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-primary" onclick="addToThird()">Add</button>
+                    <button class="btn btn-outline-primary dropdown-toggle" id="dropDown3" type="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Generate
+                    </button>
+                    <span class="sr-only">Toggle Dropdown</span>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" onclick="display15Third()" id="15Mins3" data-time='15Mins' href="#">15
+                            Minutes</a>
+                        <a class="dropdown-item" onclick="display30Third()" id="30Mins3" href="#">30 Minutes</a>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-hover text-center">
+                <thead>
+                <tr>
+                    <th class="tableHead" role="image" aria-label="hamburger" scope="col">Emoji</th>
+                    <th class="tableHead" scope="col">Name</th>
+                    <th class="tableHead" scope="col">Time</th>
+                </tr>
+                </thead>
+                <tbody id="myTable3">
+                <tr>
+                    <th id="row3" scope="row"></th>
+                    <td id="name3"></td>
+                    <td id="time3"></td>
+                </tr>
+                </tbody>
+            </table>
+            <h3 id="title3"></h3>
+            <h2 id="results3"></h2>
+
         </div>
     </div>
 </div>
@@ -114,9 +150,11 @@
     //Program to randomly select times for employee lunches :)
     let names1 = [];
     let names2 = [];
+    let names3 = [];
     let tablePosition = [];
     let schedule = {};
     let schedule2 = {};
+    let schedule3 = {};
     let breakTimesFirst = ["9:45", "10:00", "10:15", "10:30", "10:45", "11:00", "11:15"];
     let breakTimesFirstHalf = ["9:45", "10:15", "10:45", "11:15", "12:45", "1:15", "1:45"];
 
@@ -144,12 +182,12 @@
             console.log(stringName);
             document.getElementById('userInput').value = null;
         }
-        if(names1.length > 7) {
+        if (names1.length > 7) {
             $('#title').html('');
             document.getElementById('title').append('Sorry thats too many people');
             $('#dropDown').css('pointer-events', 'none')
         }
-        else if(names1.length < 1 ){
+        else if (names1.length < 1) {
             $('#title').html('');
             document.getElementById('title').append('Must enter a value');
             $('#dropDown').css('pointer-events', 'none')
@@ -165,22 +203,43 @@
             console.log(stringName2);
             document.getElementById('userInput2').value = null;
         }
-        if(names2.length > 7) {
+        if (names2.length > 7) {
             $('#title2').html('');
             document.getElementById('title2').append('Sorry thats too many people');
             $('#dropDown2').css('pointer-events', 'none')
         }
-        else if(names2.length < 1 ){
+        else if (names2.length < 1) {
             $('#title2').html('');
             document.getElementById('title2').append('Must enter a value');
             $('#dropDown2').css('pointer-events', 'none')
         }
     }
 
+    //Push input to array
+    function addToThird() {
+        if (document.getElementById('userInput3').value != '') {
+            $('#title3').html('');
+            $('#dropDown3').css('pointer-events', 'auto')
+            let stringName3 = names3.push(document.getElementById('userInput3').value.toString());
+            console.log(stringName3);
+            document.getElementById('userInput3').value = null;
+        }
+        if (names2.length > 7) {
+            $('#title3').html('');
+            document.getElementById('title2').append('Sorry thats too many people');
+            $('#dropDown3').css('pointer-events', 'none')
+        }
+        else if (names3.length < 1) {
+            $('#title3').html('');
+            document.getElementById('title3').append('Must enter a value');
+            $('#dropDown3').css('pointer-events', 'none')
+        }
+    }
+
     function display15() {
         //Fisher Yates method for randomizing array
         for (let i = names1.length - 1; i > 0; i--) {
-                let j = Math.floor(Math.random() * (i + 1));
+            let j = Math.floor(Math.random() * (i + 1));
             // random index from 0 to i
             // swap elements array[i] and array[j]
             // same can be written as:
@@ -190,7 +249,7 @@
 
         console.log(names1);
         //randomize the emoji array :)
-        for (let k = emojiArray.length - 1; k > 0; k--){
+        for (let k = emojiArray.length - 1; k > 0; k--) {
             let l = Math.floor(Math.random() * (k + 1));
             [emojiArray[k], emojiArray[l]] = [emojiArray[l], emojiArray[k]]
         }
@@ -202,18 +261,20 @@
         });
 
         console.log(schedule, "this is schedule object");
-        //generate random emoji
-        function getRandomNum(max){
-            return Math.floor(Math.random() * Math.floor(max))
-    }
 
-    $(document).ready(function () {
-        schedule;
-        //clear the previous query
-        $('#myTable').html('');
-        $.map(schedule, function (keys, value) {
-            $('#myTable').append('<tr><th>' + emojiArray[getRandomNum(106)] + '</th><td>' + value + '</td><td>' + keys + '</td></tr>');
+        //generate random emoji
+        function getRandomNum(max) {
+            return Math.floor(Math.random() * Math.floor(max))
+        }
+
+        $(document).ready(function () {
+            schedule;
+            //clear the previous query
+            $('#myTable').html('');
+            $.map(schedule, function (keys, value) {
+                $('#myTable').append('<tr><th>' + emojiArray[getRandomNum(106)] + '</th><td>' + value + '</td><td>' + keys + '</td></tr>');
             })
+
         });
     }
 
@@ -235,8 +296,8 @@
         });
 
         //generate random emoji.
-        function getRandomNum(max){
-          return Math.floor(Math.random() * Math.floor(max))
+        function getRandomNum(max) {
+            return Math.floor(Math.random() * Math.floor(max))
 
         }
 
@@ -252,7 +313,7 @@
         });
     }
 
-    function display15Second(){
+    function display15Second() {
         //Fisher Yates method for randomizing array
         for (let i = names2.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1));
@@ -265,7 +326,7 @@
 
         console.log(names2);
         //randomize the emoji array :)
-        for (let k = emojiArray.length - 1; k > 0; k--){
+        for (let k = emojiArray.length - 1; k > 0; k--) {
             let l = Math.floor(Math.random() * (k + 1));
             [emojiArray[k], emojiArray[l]] = [emojiArray[l], emojiArray[k]]
         }
@@ -277,8 +338,9 @@
         });
 
         console.log(schedule2, "this is schedule object");
+
         //generate random emoji
-        function getRandomNum(max){
+        function getRandomNum(max) {
             return Math.floor(Math.random() * Math.floor(max))
         }
 
@@ -288,6 +350,117 @@
             $('#myTable2').html('');
             $.map(schedule2, function (keys2, value2) {
                 $('#myTable2').append('<tr><th>' + emojiArray[getRandomNum(106)] + '</th><td>' + value2 + '</td><td>' + keys2 + '</td></tr>');
+            })
+        });
+    }
+
+    function display30Second() {
+        //Fisher Yates method for randomizing array
+        for (let i = names1.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            // random index from 0 to i
+            // swap elements array[i] and array[j]
+            // same can be written as:
+            // let t = array[i]; array[i] = array[j]; array[j] = t
+            [names2[i], names2[j]] = [names2[j], names2[i]]
+        }
+
+        console.log(names2);
+        //Put into an Object
+        names2.forEach(function (key, i) {
+            schedule2[key] = breakTimesSecondHalf[i];
+        });
+
+        //generate random emoji.
+        function getRandomNum(max) {
+            return Math.floor(Math.random() * Math.floor(max))
+
+        }
+
+        console.log(schedule, "this is schedule object");
+        $(document).ready(function () {
+            schedule2;
+            //clear the previous query
+            $('#myTable2').html('');
+            $.map(schedule2, function (keys2, value2) {
+                $('#myTable2').append('<tr><th>' + emojiArray[getRandomNum(106)] + '</th><td>' + value2 + '</td><td>' + keys2 + '</td></tr>');
+
+            })
+        });
+    }
+
+    function display15Third() {
+        //Fisher Yates method for randomizing array
+        for (let i = names3.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            // random index from 0 to i
+            // swap elements array[i] and array[j]
+            // same can be written as:
+            // let t = array[i]; array[i] = array[j]; array[j] = t
+            [names3[i], names3[j]] = [names3[j], names3[i]]
+        }
+
+        console.log(names3);
+        //randomize the emoji array :)
+        for (let k = emojiArray.length - 1; k > 0; k--) {
+            let l = Math.floor(Math.random() * (k + 1));
+            [emojiArray[k], emojiArray[l]] = [emojiArray[l], emojiArray[k]]
+        }
+
+        console.log(emojiArray.length);
+        //Put into an Object
+        names3.forEach(function (key, i) {
+            schedule3[key] = breakTimesThird[i];
+        });
+
+        console.log(schedule3, "this is schedule object");
+
+        //generate random emoji
+        function getRandomNum(max) {
+            return Math.floor(Math.random() * Math.floor(max))
+        }
+
+        $(document).ready(function () {
+            schedule3;
+            //clear the previous query
+            $('#myTable3').html('');
+            $.map(schedule3, function (keys3, value3) {
+                $('#myTable3').append('<tr><th>' + emojiArray[getRandomNum(106)] + '</th><td>' + value3 + '</td><td>' + keys3 + '</td></tr>');
+            })
+        });
+    }
+
+    function display30Third() {
+        //Fisher Yates method for randomizing array
+        for (let i = names3.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            // random index from 0 to i
+            // swap elements array[i] and array[j]
+            // same can be written as:
+            // let t = array[i]; array[i] = array[j]; array[j] = t
+            [names3[i], names3[j]] = [names3[j], names3[i]]
+        }
+
+        console.log(names3);
+        //Put into an Object
+        names3.forEach(function (key, i) {
+            schedule3[key] = breakTimesThirdHalf[i];
+        });
+
+        //generate random emoji.
+        function getRandomNum(max) {
+            return Math.floor(Math.random() * Math.floor(max))
+
+        }
+
+        console.log(schedule, "this is schedule object");
+        $(document).ready(function () {
+            schedule3;
+            //clear the previous query
+            $('#myTable3').html('');
+            $.map(schedule3, function (keys3, value3) {
+                $('#myTable3').append('<tr><th>' + emojiArray[getRandomNum(106)] + '</th><td>' + value3 + '</td><td>' + keys3 + '</td></tr>');
+
             })
         });
     }

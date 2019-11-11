@@ -1,32 +1,63 @@
+body {
 
-.navbar-brand.mb-0{
+}
+
+.navbar-brand.mb-0 {
   font-family: 'Racing Sans One', cursive !important;
 }
 
-.img-fluid {
-  height: 100px;
-  width: 100px;
-  /*margin-bottom: -25px;*/
-  /*margin-top: -25px;*/
+#titleText {
+  font-style: italic;
 }
-h1{
+
+img {
+  margin-bottom: -20px;
+  margin-right: 20px;
+}
+
+h1 {
   font-family: 'Racing Sans One', cursive !important;
   text-decoration: underline;
 }
-h2{
+
+h2 {
   font-family: 'Racing Sans One', cursive !important;
   text-decoration: underline;
 
 }
 
-/*Tables*/
+/*!*Tables*!*/
 th.tableHead {
   font-family: 'Racing Sans One', cursive !important;
   text-decoration: underline;
-  /*font-size: x-large;*/
+  font-size: 30px;
 }
 
 tr {
   font-family: 'Racing Sans One', cursive !important;
-  font-size: 40px !important;
+  font-size: 30px !important;
+}
+
+td.name {
+  padding-right: 20px;
+}
+
+td.name2 {
+  padding-right: 20px;
+}
+
+td.name3 {
+  padding-right: 20px;
+}
+
+tbody#myTable tr th {
+  font-size: 45px !important;
+}
+
+tbody#myTable2 tr th {
+  font-size: 45px !important;
+}
+
+tbody#myTable3 tr th {
+  font-size: 45px !important;
 }
